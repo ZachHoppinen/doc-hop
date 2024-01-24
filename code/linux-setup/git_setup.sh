@@ -18,3 +18,7 @@ echo "$(<~/.ssh/id_ed25519 )"
 
 git config --global user.name "Zach Hoppinen"
 git config --global user.email "Zachhoppinen@gmail.com"
+
+# explicitly set up settings
+git config --global push.default matching
+git config --global pull.rebase true
