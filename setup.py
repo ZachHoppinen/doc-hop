@@ -4,11 +4,25 @@
 # Note: To use the 'upload' functionality of this file, you must:
 #   $ pipenv install twine --dev
 
+"""
+To upload run:
+
+python3 -m build
+twine upload dist/*
+
+in the home directory of this file.
+
+to have github auto-release:
+https://dev.to/iamtekson/publish-package-to-pypi-and-release-new-version-using-github-actions-108k
+
+git tag -a 0.0.6 -m "new tag"
+git push origin 0.0.6
+"""
+
 import io
 import os
 import sys
 from shutil import rmtree
-from argon2 import extract_parameters
 
 from setuptools import find_packages, setup, Command
 
@@ -21,6 +35,7 @@ AUTHOR = 'Zach Hoppinen'
 REQUIRES_PYTHON = '>=3.7.0'
 VERSION = '0.0.1'
 
+# What packages are required for this module to be executed?
 # What packages are required for this module to be executed?
 REQUIRED = [
     'numpy',
@@ -38,7 +53,7 @@ REQUIRED = [
 
 # What packages are optional?
 EXTRAS = {
-    'nb_conda_kernels', 'ipykernel', 'ipywidgets', 'jupyter', 'GDAL'
+    'ipykernel', 'ipywidgets'
 }
 
 # The rest you shouldn't have to touch too much :)
@@ -106,7 +121,7 @@ class UploadCommand(Command):
 # Where the magic happens:
 setup(
     name=NAME,
-    version=about['__version__'],
+    version='{{VERSION_PLACEHOLDER}}', # change to value if not using github auto upload
     description=DESCRIPTION,
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -123,8 +138,7 @@ setup(
     # },
     install_requires=REQUIRED,
     # extras_require=EXTRAS,
-    test_suite='nose.collector',
-    tests_require=['nose'],
+    test_suite='tests',
     include_package_data=True,
     license='MIT',
     classifiers=[
@@ -133,7 +147,7 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy'
     ],
