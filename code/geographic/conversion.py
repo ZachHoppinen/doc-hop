@@ -3,6 +3,11 @@ import urllib
 import pandas as pd
 from geopy.distance import geodesic
 
+def convert_3d_to_2d(gdf):
+    _drop_z = lambda geom: wkb.loads(wkb.dumps(geom, output_dimension=2))
+    gdf.geometry = gdf.geometry.transform(_drop_z)
+
+
 def convert_coord_decimal_to_degree(coord: float):
     """ 
     Convert decimal degree to decimal minutes
