@@ -121,7 +121,7 @@ class UploadCommand(Command):
 # Where the magic happens:
 setup(
     name=NAME,
-    version='{{VERSION_PLACEHOLDER}}', # change to value if not using github auto upload
+    version='0.0.1', # change to value if not using github auto upload
     description=DESCRIPTION,
     long_description=long_description,
     long_description_content_type='text/markdown',
