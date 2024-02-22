@@ -3,6 +3,20 @@ import urllib
 import pandas as pd
 from geopy.distance import geodesic
 
+import math
+def decimal_degree_to_meters(lat1, lon1, lat2, lon2):  # generally used geo measurement function
+    """
+    Can be used to calculate distance in meters between two coordinates.
+    https://stackoverflow.com/questions/639695/how-to-convert-latitude-or-longitude-to-meters
+    """
+    R = 6378.137 # Radius of earth in KM
+    dLat = lat2 * math.pi / 180 - lat1 * math.pi / 180
+    dLon = lon2 * math.pi / 180 - lon1 * math.pi / 180
+    a = math.sin(dLat/2) * math.sin(dLat/2) + math.cos(lat1 * math.pi / 180) * math.cos(lat2 * math.pi / 180) * math.sin(dLon/2) * math.sin(dLon/2)
+    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1-a))
+    d = R * c
+    return d * 1000; # meters
+
 def convert_3d_to_2d(gdf):
     _drop_z = lambda geom: wkb.loads(wkb.dumps(geom, output_dimension=2))
     gdf.geometry = gdf.geometry.transform(_drop_z)
