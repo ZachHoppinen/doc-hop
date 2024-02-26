@@ -4,6 +4,10 @@ import pandas as pd
 from geopy.distance import geodesic
 
 import math
+
+def MetersToDecimalDegrees(meters, latitude):
+    return meters / (111.32 * 1000 * np.cos(latitude * (np.pi / 180)))
+
 def decimal_degree_to_meters(lat1, lon1, lat2, lon2):  # generally used geo measurement function
     """
     Can be used to calculate distance in meters between two coordinates.
