@@ -1,0 +1,637 @@
+Using 12 threads
+test-100x100 serial times:
+35
+35
+35
+35
+36
+Average: 35.2
+parallel times:
+1491
+1254
+996
+1170
+1044
+Average: 1191
+
+test-10x10 serial times:
+0
+0
+0
+0
+0
+Average: 0
+parallel times:
+352
+22
+22
+18
+23
+Average: 87.4
+
+test-20x20 serial times:
+1
+1
+1
+1
+1
+Average: 1
+parallel times:
+430
+64
+57
+55
+62
+Average: 133.6
+
+test-4x4 serial times:
+0
+0
+0
+0
+0
+Average: 0
+parallel times:
+268
+8
+6
+6
+6
+Average: 58.8
+
+test-50x50 serial times:
+9
+8
+13
+8
+8
+Average: 9.2
+parallel times:
+609
+295
+310
+291
+300
+Average: 361
+
+test-5x5 serial times:
+0
+0
+0
+0
+0
+Average: 0
+parallel times:
+291
+9
+11
+9
+8
+Average: 65.6
+
+Using 16 threads
+test-100x100 serial times:
+34
+36
+34
+34
+36
+Average: 34.8
+parallel times:
+1893
+1389
+1525
+1373
+1377
+Average: 1511.4
+
+test-10x10 serial times:
+0
+0
+0
+0
+0
+Average: 0
+parallel times:
+407
+21
+21
+19
+23
+Average: 98.2
+
+test-20x20 serial times:
+1
+1
+1
+1
+1
+Average: 1
+parallel times:
+499
+87
+63
+76
+69
+Average: 158.8
+
+test-4x4 serial times:
+0
+0
+0
+0
+0
+Average: 0
+parallel times:
+383
+7
+7
+6
+6
+Average: 81.8
+
+test-50x50 serial times:
+8
+8
+8
+8
+9
+Average: 8.2
+parallel times:
+711
+330
+351
+325
+352
+Average: 413.8
+
+test-5x5 serial times:
+0
+0
+0
+0
+0
+Average: 0
+parallel times:
+389
+9
+9
+9
+10
+Average: 85.2
+
+Using 20 threads
+test-100x100 serial times:
+32
+32
+53
+34
+32
+Average: 36.6
+parallel times:
+2427
+1909
+2026
+2061
+1905
+Average: 2065.6
+
+test-10x10 serial times:
+0
+0
+0
+0
+0
+Average: 0
+parallel times:
+445
+24
+23
+27
+23
+Average: 108.4
+
+test-20x20 serial times:
+1
+1
+1
+1
+1
+Average: 1
+parallel times:
+513
+95
+84
+106
+94
+Average: 178.4
+
+test-4x4 serial times:
+0
+0
+0
+0
+0
+Average: 0
+parallel times:
+422
+16
+8
+9
+8
+Average: 92.6
+
+test-50x50 serial times:
+8
+8
+8
+8
+9
+Average: 8.2
+parallel times:
+908
+439
+478
+467
+452
+Average: 548.8
+
+test-5x5 serial times:
+0
+0
+0
+0
+0
+Average: 0
+parallel times:
+423
+10
+10
+11
+10
+Average: 92.8
+
+Using 28 threads
+test-100x100 serial times:
+32
+32
+32
+35
+32
+Average: 32.6
+parallel times:
+4427
+2319
+2524
+1620
+1624
+Average: 2502.8
+
+test-10x10 serial times:
+0
+0
+0
+0
+0
+Average: 0
+parallel times:
+3448
+1365
+49
+52
+44
+Average: 991.6
+
+test-20x20 serial times:
+1
+1
+1
+1
+1
+Average: 1
+parallel times:
+3280
+77
+61
+69
+50
+Average: 707.4
+
+test-4x4 serial times:
+0
+0
+0
+0
+0
+Average: 0
+parallel times:
+3455
+44
+47
+47
+45
+Average: 727.6
+
+test-50x50 serial times:
+8
+8
+8
+8
+9
+Average: 8.2
+parallel times:
+3283
+686
+544
+459
+496
+Average: 1093.6
+
+test-5x5 serial times:
+0
+0
+0
+0
+0
+Average: 0
+parallel times:
+3252
+51
+46
+48
+49
+Average: 689.2
+
+Using 2 threads
+test-100x100 serial times:
+34
+34
+35
+34
+34
+Average: 34.2
+parallel times:
+516
+414
+519
+442
+463
+Average: 470.8
+
+test-10x10 serial times:
+0
+0
+0
+0
+0
+Average: 0
+parallel times:
+106
+13
+26
+6
+10
+Average: 32.2
+
+test-20x20 serial times:
+1
+1
+1
+1
+1
+Average: 1
+parallel times:
+100
+36
+18
+17
+20
+Average: 38.2
+
+test-4x4 serial times:
+0
+0
+0
+0
+0
+Average: 0
+parallel times:
+106
+3
+3
+3
+3
+Average: 23.6
+
+test-50x50 serial times:
+8
+9
+8
+8
+8
+Average: 8.2
+parallel times:
+306
+101
+97
+94
+91
+Average: 137.8
+
+test-5x5 serial times:
+0
+0
+0
+0
+0
+Average: 0
+parallel times:
+98
+4
+3
+5
+5
+Average: 23
+
+Using 4 threads
+test-100x100 serial times:
+32
+32
+36
+32
+32
+Average: 32.8
+parallel times:
+819
+693
+846
+687
+687
+Average: 746.4
+
+test-10x10 serial times:
+0
+0
+0
+0
+0
+Average: 0
+parallel times:
+120
+12
+13
+13
+14
+Average: 34.4
+
+test-20x20 serial times:
+1
+1
+1
+1
+1
+Average: 1
+parallel times:
+193
+34
+54
+32
+28
+Average: 68.2
+
+test-4x4 serial times:
+0
+0
+0
+0
+0
+Average: 0
+parallel times:
+126
+4
+4
+5
+4
+Average: 28.6
+
+test-50x50 serial times:
+8
+9
+8
+8
+8
+Average: 8.2
+parallel times:
+271
+176
+171
+178
+174
+Average: 194
+
+test-5x5 serial times:
+0
+0
+0
+0
+0
+Average: 0
+parallel times:
+143
+6
+7
+9
+4
+Average: 33.8
+
+Using 8 threads
+test-100x100 serial times:
+34
+54
+34
+34
+37
+Average: 38.6
+parallel times:
+1345
+1101
+1074
+968
+924
+Average: 1082.4
+
+test-10x10 serial times:
+0
+0
+0
+0
+0
+Average: 0
+parallel times:
+222
+16
+20
+21
+19
+Average: 59.6
+
+test-20x20 serial times:
+1
+1
+17
+1
+1
+Average: 4.2
+parallel times:
+344
+43
+47
+45
+53
+Average: 106.4
+
+test-4x4 serial times:
+0
+0
+0
+0
+0
+Average: 0
+parallel times:
+241
+6
+7
+5
+6
+Average: 53
+
+test-50x50 serial times:
+8
+8
+9
+8
+8
+Average: 8.2
+parallel times:
+641
+233
+235
+227
+254
+Average: 318
+
+test-5x5 serial times:
+0
+0
+0
+0
+0
+Average: 0
+parallel times:
+233
+7
+6
+8
+7
+Average: 52.2
+
