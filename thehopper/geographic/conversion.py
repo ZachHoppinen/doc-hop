@@ -5,6 +5,9 @@ from geopy.distance import geodesic
 
 import math
 
+def DecimalDegreestoMeters(decdeg, latitude):
+    return (111.32 * 1000 * np.cos(latitude * (np.pi / 180))) * decdeg
+    
 def MetersToDecimalDegrees(meters, latitude):
     return meters / (111.32 * 1000 * np.cos(latitude * (np.pi / 180)))
 
