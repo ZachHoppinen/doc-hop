@@ -21,19 +21,16 @@ def get_stats(xs, ys, clean = True, bias = False):
 
     return rmse, r, len(xs)
 
-def clean_xs_ys(xs, ys, clean_zeros = False):
-        # stack arrays
-    xs = np.hstack(xs)
-    ys = np.hstack(ys)
+import xarray as xr
 
-    xs_tmp = xs[(~np.isnan(xs)) & (~np.isnan(ys)) & (np.isfinite(xs)) & (np.isfinite(ys))]
-    ys = ys[(~np.isnan(xs)) & (~np.isnan(ys))  & (np.isfinite(xs)) & (np.isfinite(ys))]
-    xs = xs_tmp
+def clean_xs_ys(xs, ys):
+    if type(xs) == list: xs = np.array(xs)
+    if type(ys) == list: ys = np.array(ys)
 
-    if clean_zeros:
-        xs_tmp = xs[(xs != 0) & (ys != 0)]
-        ys = ys[(xs != 0) & (ys != 0)]
-        xs = xs_tmp
+    if type(xs) == xr.DataArray: xs = xs.values.ravel()
+    if type(ys) == xr.DataArray: ys = ys.values.ravel()
+    idx = (~np.isnan(xs)) & (~np.isnan(ys))
+    xs, ys = xs[idx], ys[idx]
 
     return xs, ys
 
