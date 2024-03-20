@@ -1,4 +1,5 @@
 import numpy as np
+from scipy.interpolate import griddata
 
 def reproject_to_1d(da):
     xout = np.linspace(np.min(da.x), np.max(da.x), da.shape[0])
