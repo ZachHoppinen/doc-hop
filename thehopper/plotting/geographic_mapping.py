@@ -4,9 +4,14 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 
 def map_grid_clean(axes, x_tick_n = 3, y_tick_n = 4, ylabel = 'Latitude [°]', xlabel = 'Longitude [°]', rows_1d = True):
+    
+    if type(axes) == list: axes= np.array(axes)
     if type(axes) == mpl.axes._axes.Axes: axes = np.array([axes])
     
+
     for ax in axes.ravel():
+        if ax.get_label() == '<colorbar>': continue
+
         ax.ticklabel_format(axis = 'both', style = 'plain', useOffset = False)
         ax.xaxis.set_major_locator(plt.MaxNLocator(x_tick_n))
         ax.yaxis.set_major_locator(plt.MaxNLocator(y_tick_n))
