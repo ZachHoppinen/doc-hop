@@ -116,3 +116,59 @@ def triangle(x, y):
     Calculate distance between two points using triangle method
     """
     return np.sqrt(x*x + y*y)
+
+def cartesian_to_geoid(X, Y , Z ):
+    """
+    Convert from X, Y, Z geoid Earth Centered Earth Fixed to longitude, latitude, height
+    """
+    A_ELLIPSOID = 6378137.0
+    F_ELLIPSOID = 1.0/298.257223560
+    MU          = 3.986004418e14
+    OMEGA       = np.array([0.0, 0.0, 0.0])
+
+    DEG = np.pi/180
+    EPS = 1E-8
+    MAXIT = 10
+    f     = F_ELLIPSOID    # WGS84
+    eEarth2= (2.0*f-f*f)
+    a      = A_ELLIPSOID   #(m) major semiaxis WGS84
+
+    rb     = a*(1-f)
+    # rb is only used to calculate an initial value for 'H'
+    rho = np.linalg.norm([X, Y], 2)
+    if rho != 0.0:
+        tanPHI = Z/rho
+    else:
+        tanPHI = 10e20
+    r = np.linalg.norm([X, Y, Z], 2)
+    H = r - rb
+    b = np.arcsin(Z/r)
+    k = a*(1-eEarth2)
+    i = 0
+    b0 = 10E10
+    H0 = 10E10
+
+    while (((abs(b-b0) >= EPS)) | ((abs(H-H0) >= EPS))) & (i <= MAXIT):
+        b0 = b
+        H0 = H
+        l = a/np.sqrt(1.0-eEarth2*np.sin(b0)**2)
+        if (abs(b) < EPS):
+            b = 0.0
+            H = rho - a
+        else:
+            b = np.arctan2(tanPHI*(l+H),(1-eEarth2)*l+H0)
+            H = Z/np.sin(b) - k/np.sqrt(1.0- eEarth2*np.sin(b)**2)
+        i = i+1
+    if i > MAXIT:
+        lat = 0.0
+        lon = 0.0
+        H = 0.0
+    else:
+        lat = b
+        lon = np.arctan2(Y, X)
+    return np.rad2deg(lon), np.rad2deg(lat), H
+
+import pyproj
+def convert_x_y_z(lon, lat, height):
+    transformer = pyproj.Transformer.from_crs("EPSG:4326", "EPSG:32611", always_xy = True)
+    posx, posy, posz = transformer.transform(lon, lat, height)
