@@ -48,3 +48,27 @@ def make_orbit_mask(ds_orbit):
         dims=ds_orbit['vv'].dims,
         coords=ds_orbit['vv'].coords
     )
+
+def season_mask(time, season):
+    """
+    Create a boolean mask for a month-day season.
+
+    Parameters
+    ----------
+    time : xr.DataArray or pandas.DatetimeIndex
+    season : ((int, int), (int, int))
+
+    Returns
+    -------
+    xr.DataArray[bool]
+    """
+    start, end = season
+
+    md = time.dt.month * 100 + time.dt.day
+    start_md = start[0] * 100 + start[1]
+    end_md   = end[0] * 100 + end[1]
+
+    if start_md <= end_md:
+        return (md >= start_md) & (md <= end_md)
+    else:
+        return (md >= start_md) | (md <= end_md)
